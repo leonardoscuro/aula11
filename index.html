@@ -9,13 +9,21 @@
     </head>
     <body>
 
-          <h1>Carros</h1>
+        <h1>Carros</h1>
         
-        <h2>Mostrar nomes:</h2>
+        <h2>Mostrar carros:</h2>
         <form id="getForm">
         <button type="submit" onclick="return submitGets1()">Open</button>
         </form>
         <p id="json1"> </p>
+
+        <h2>Apagar elemento</h2>
+        <form id="deleteForms1">
+        <label>Id:<input type="text" name="id"/></label>        
+         <button type="submit" onclick="return submitDeletes1()">Submit</button>
+         </form>
+
+        <h1>Modelo</h1>
 
         <h2>Adicionar modelos</h2>
         <form id="postForms1">
@@ -31,11 +39,37 @@
          <button type="submit" onclick="return submitPuts1()">Submit</button>
          </form>
 
-         <h2>Apagar carro</h2>
-         <form id="deleteForms1">
-         <label>Id:<input type="text" name="id"/></label>        
-          <button type="submit" onclick="return submitDeletes1()">Submit</button>
-          </form>
+         <h1>Placa</h1>
+
+         <h2>Adicionar placa</h2>
+         <form id="postForms2">
+         <label for="mensagem">Placa:</label>
+         <input type="text" id ="mensagem" name="mensagem"/>
+         <button type="submit" onclick="return submitPosts2()">Submit</button>
+         </form>
+
+        <h2>Mudar a placa</h2>
+        <form id="putForms2">
+        <label>Id:<input type="text" name="id"/></label>
+        <label>Placa:<input type="text" name="mensagem"/></label>
+        <button type="submit" onclick="return submitPuts2()">Submit</button>
+        </form>
+
+        <h1>Cor</h1>
+
+        <h2>Adicionar cor</h2>
+        <form id="postForms3">
+        <label for="mensagem">Cor:</label>
+        <input type="text" id ="mensagem" name="mensagem"/>
+        <button type="submit" onclick="return submitPosts3()">Submit</button>
+        </form>
+
+        <h2>Mudar a cor</h2>
+        <form id="putForms3">
+        <label>Id:<input type="text" name="id"/></label>
+        <label>Cor:<input type="text" name="mensagem"/></label>
+         <button type="submit" onclick="return submitPuts3()">Submit</button>
+         </form>
 
           <br/>
     </body>
