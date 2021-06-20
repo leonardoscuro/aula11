@@ -2,35 +2,41 @@
 <html>
     <head>
         <title>
-            Aula 11
+            Formulário
         </title>
         <meta charset="UTF-8"/>
         <script src="js/functions.js"></script>
     </head>
     <body>
-        <h2>Padrão REST</h2>
-        <a href="javascript:callFetchWithGet()">Get</a>
-        <p id="json"> </p>
 
-        <h2>Formulário Básico (post)</h2>
-        <form id="postForm">
-            <label for="mensagem">Carro:</label>
-            <input type="text" id ="mensagem" name="mensagem"/>
-            <button type="submit" onclick="return submitPost()">Submit</button>
+          <h1>Carros</h1>
+        
+        <h2>Mostrar nomes:</h2>
+        <form id="getForm">
+        <button type="submit" onclick="return submitGets1()">Open</button>
+        </form>
+        <p id="json1"> </p>
+
+        <h2>Adicionar modelos</h2>
+        <form id="postForms1">
+        <label for="mensagem">Modelo:</label>
+        <input type="text" id ="mensagem" name="mensagem"/>
+        <button type="submit" onclick="return submitPosts1()">Submit</button>
         </form>
 
-        <h2>Formulário Básico (Put)</h2>
-        <form id="putForm">
-            <label>Id:<input type="text" name="id"/></label>
-            <label>Mensagem:<input type="text" name="mensagem"/></label>
-            <button type="submit" onclick="return submitPut()">Submit</button>
+        <h2>Mudar o modelo</h2>
+        <form id="putForms1">
+        <label>Id:<input type="text" name="id"/></label>
+        <label>Modelo:<input type="text" name="mensagem"/></label>
+         <button type="submit" onclick="return submitPuts1()">Submit</button>
          </form>
 
-         <h2>Formulário Básico (Delete)</h2>
-         <form id="deleteForm">
+         <h2>Apagar carro</h2>
+         <form id="deleteForms1">
          <label>Id:<input type="text" name="id"/></label>        
-          <button type="submit" onclick="return submitDelete()">Submit</button>
+          <button type="submit" onclick="return submitDeletes1()">Submit</button>
           </form>
-    
+
+          <br/>
     </body>
 </html>

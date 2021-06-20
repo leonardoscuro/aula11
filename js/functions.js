@@ -1,39 +1,44 @@
-let url = "https://tt905-msgs-leonardo.herokuapp.com/mensagens/"
+let url = "https://tt905-msgs-leonardo.herokuapp.com/database/"
 
-async function callFetchWithGet(){
+/********************************************************************** 
+*******************************Carros**********************************
+***********************************************************************/
+
+async function callFetchWithGets1(){
     let headers = new Headers();
     const options = {
         method : 'GET',
         mode: 'cors',
         headers: headers
     }
-    const output = document.getElementById("json");
-    const response = await fetch(url, options);
+    const output = document.getElementById("json1");
+    const response = await fetch(`${url}${'database/'}`, options);
 
     if (response.status >= 200 && response.status <= 300){
-        console.log("Funcionou");
+        console.log("Funcionou/GET");
         output.innerHTML = await response.text();
     } else {
         console.log("Deu errado");
     }
 }
 
-async function callFetchWithPost(mensagem){
+async function callFetchWithPosts1(modelo){
     const options = {
         method : 'POST',
         mode: 'cors',
-        headers: {
+        headers: { 
             'Accept' : 'application/json',
             'content-type' : 'application/json'
         },
         body :JSON.stringify({
-            'mensagem' : mensagem
+            'Modelo' : modelo
         })
     }
-    await fetch(url, options);
+    //await fetch(url, options);
+    await fetch(`${url}${'database/'}`, options);
 }
 
-async function callFetchWithPut(id, novaMensagem){
+async function callFetchWithPuts1(id, novaMensagem){
     const options = {
         method : 'PUT',
         mode: 'cors',
@@ -42,13 +47,14 @@ async function callFetchWithPut(id, novaMensagem){
             'content-type' : 'application/json'            
         }, 
         body :JSON.stringify({
-            'mensagem' : novaMensagem
+            'Modelo' : novaMensagem
         })
     }
-    await fetch(`${url}${id}`, options);
+    //await fetch(`${url}${id}`, options);
+    await fetch(`${url}${'database/'}${id}`, options);
 }
 
-async function callFetchWithDelete(id){
+async function callFetchWithDeletes1(id){
     const options = {
         method : 'DELETE',
         mode: 'cors',
@@ -57,33 +63,52 @@ async function callFetchWithDelete(id){
             'content-type' : 'application/json' 
         }
     }
-    await fetch(`${url}${id}`, options);
+    //await fetch(`${url}${id}`, options);
+    await fetch(`${url}${'database/'}${id}`, options);
 }
+
 
 /*
     Formulários
 */
 
-function submitPost(){
+function submitPosts1(){
     console.log("entrei na função");
     
-    const form = document.forms['postForm'];    
+    const form = document.forms['postForms1'];    
     const mensagem = form["mensagem"].value;
-    callFetchWithPost(mensagem);
+    callFetchWithPosts1(mensagem);
     return false; // Evitar o reload da tela.
 }
 
-function submitPut(){
-    const form = document.forms['putForm'];  
+function submitPuts1(){
+    const form = document.forms['putForms1'];  
     const id = form["id"].value;  
     const mensagem = form["mensagem"].value;
-    callFetchWithPut(id, mensagem);
+    callFetchWithPuts1(id, mensagem);
     return false; // Evitar o reload da tela.
 }
 
-function submitDelete(){
-    const form = document.forms['deleteForm'];  
+function submitDeletes1(){
+    const form = document.forms['deleteForms1'];  
     const id = form["id"].value;  
-    callFetchWithDelete(id);
+    callFetchWithDeletes1(id);
     return false; // Evitar o reload da tela.
+}
+
+function submitGet(){
+    callFetchWithGet();
+    return false;
+}
+function submitGets1(){
+    callFetchWithGets1();
+    return false;
+}
+function submitGets2(){
+    callFetchWithGets2();
+    return false;
+}
+function submitGets3(){
+    callFetchWithGets3();
+    return false;
 }
